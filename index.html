@@ -1,5 +1,629 @@
 <!DOCTYPE html>
-<html>
-<head><title>Hakuna Matata</title></head>
-<body><h1>Coming soon</h1></body>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hakuna Matata — Marketing na Autopilocie</title>
+  <meta name="description" content="Gotowe skrypty na social media każdego ranka o 08:00. Spersonalizowane pod Twój gabinet. Bezpośrednio na Telegram." />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_META_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','YOUR_GA4_ID');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0d1f3c;
+      --navy-mid:    #1a3260;
+      --navy-light:  #2a4a8a;
+      --pearl:       #f8f6f2;
+      --alabaster:   #f2efe9;
+      --white:       #ffffff;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #3d4460;
+      --text-soft:   #6b7280;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'DM Sans', system-ui, sans-serif;
+      --shadow-card: 0 2px 20px rgba(13,31,60,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--text-dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 88px 0; }
+    .section-alt { background: var(--pearl); }
+    .section-cream { background: var(--alabaster); }
+
+    .label {
+      display: inline-block; font-family: var(--sans);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--navy-light); margin-bottom: 16px;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); line-height: 1.2; }
+
+    .btn-primary {
+      display: inline-block; background: var(--navy); color: var(--white);
+      font-family: var(--sans); font-size: 16px; font-weight: 500;
+      padding: 18px 40px; border-radius: 4px; text-decoration: none;
+      letter-spacing: 0.02em; cursor: pointer; border: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(13,31,60,0.22);
+    }
+    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(13,31,60,0.28); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13,31,60,0.08); z-index: 100; padding: 0 24px;
+    }
+    .nav-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 36px; width: 36px; border-radius: 50%; }
+    .nav-logo-text { font-family: var(--serif); font-size: 17px; color: var(--navy); font-weight: 600; line-height: 1.1; }
+    .nav-logo-sub { font-family: var(--sans); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-soft); display: block; }
+    .nav-cta { font-size: 14px; padding: 10px 24px; }
+
+    /* HERO */
+    #hero { padding: 148px 0 96px; background: var(--white); position: relative; overflow: hidden; }
+    #hero::before {
+      content: ''; position: absolute; top: -120px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(42,74,138,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .hero-badge { background: var(--alabaster); border: 1px solid rgba(13,31,60,0.12); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--navy); letter-spacing: 0.04em; }
+    .hero-scarcity-badge { background: #fff8e6; border: 1px solid #e8c84a; border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: #7a5c00; }
+    h1.hero-headline { font-size: clamp(36px,5vw,54px); font-weight: 700; color: var(--navy); margin-bottom: 24px; line-height: 1.15; }
+    h1.hero-headline em { font-style: italic; color: var(--navy-light); }
+    .hero-sub { font-size: 18px; color: var(--text-mid); margin-bottom: 36px; line-height: 1.65; font-weight: 300; }
+    .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .hero-disclosure { font-size: 13px; color: var(--text-soft); }
+
+    .hero-visual { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .hero-logo-wrap { width: 200px; height: 200px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(13,31,60,0.20), 0 4px 16px rgba(13,31,60,0.12); }
+    .hero-logo-wrap img { width: 140px; height: 140px; border-radius: 50%; }
+    .delivery-card { background: var(--white); border: 1px solid rgba(13,31,60,0.10); border-radius: 12px; padding: 18px 24px; box-shadow: var(--shadow-card); width: 100%; max-width: 320px; }
+    .delivery-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .tg-dot { width: 36px; height: 36px; background: #229ed9; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tg-dot svg { width: 18px; height: 18px; fill: white; }
+    .delivery-label { font-size: 12px; color: var(--text-soft); }
+    .delivery-time { font-size: 22px; font-family: var(--serif); font-weight: 700; color: var(--navy); }
+    .delivery-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--navy); padding: 20px 0; }
+    .trust-bar-inner { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.82); font-size: 13px; }
+
+    /* PROBLEM */
+    .problem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 48px; }
+    .problem-card { background: var(--white); border: 1px solid rgba(13,31,60,0.09); border-radius: 12px; padding: 32px 28px; box-shadow: var(--shadow-card); position: relative; }
+    .problem-number { font-family: var(--serif); font-size: 48px; font-weight: 700; color: rgba(13,31,60,0.07); position: absolute; top: 16px; right: 20px; line-height: 1; }
+    .problem-card h3 { font-size: 18px; color: var(--navy); margin-bottom: 12px; font-weight: 600; }
+    .problem-card p { font-size: 14px; color: var(--text-mid); line-height: 1.65; font-weight: 300; }
+
+    /* HOW IT WORKS */
+    .steps { margin-top: 56px; }
+    .step { display: grid; grid-template-columns: 64px 1fr; gap: 28px; align-items: flex-start; margin-bottom: 48px; position: relative; }
+    .step:not(:last-child)::after { content: ''; position: absolute; left: 31px; top: 64px; width: 2px; height: 100%; background: linear-gradient(to bottom, rgba(13,31,60,0.15), rgba(13,31,60,0.03)); }
+    .step-num { width: 64px; height: 64px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 16px rgba(13,31,60,0.18); }
+    .step-num span { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--white); }
+    .step-content { padding-top: 12px; }
+    .step-content h3 { font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+    .step-content p { font-size: 15px; color: var(--text-mid); line-height: 1.65; font-weight: 300; max-width: 560px; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
+    .feature-card { background: var(--white); border-radius: 14px; padding: 36px 28px; border: 1px solid rgba(13,31,60,0.08); box-shadow: var(--shadow-card); transition: transform 0.2s, box-shadow 0.2s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(13,31,60,0.13); }
+    .feature-icon { font-size: 32px; margin-bottom: 18px; display: block; }
+    .feature-card h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: var(--text-mid); line-height: 1.65; font-weight: 300; }
+
+    /* PAKIET */
+    .section-headline { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .section-headline h2 { font-size: clamp(28px,4vw,40px); color: var(--navy); margin-bottom: 14px; }
+    .section-headline p { font-size: 16px; color: var(--text-mid); font-weight: 300; }
+
+    .pakiet-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 860px; margin: 0 auto; }
+    .pakiet-item { background: var(--white); border: 1px solid rgba(13,31,60,0.09); border-radius: 12px; padding: 24px 28px; display: flex; gap: 18px; align-items: flex-start; box-shadow: var(--shadow-card); }
+    .pakiet-item.full-width { grid-column: 1 / -1; }
+    .pakiet-item.bonus { background: var(--alabaster); border-color: rgba(13,31,60,0.13); }
+    .pakiet-check { width: 28px; height: 28px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .pakiet-check svg { width: 14px; height: 14px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pakiet-item h4 { font-family: var(--serif); font-size: 16px; color: var(--navy); margin-bottom: 5px; font-weight: 600; }
+    .pakiet-item p { font-size: 13px; color: var(--text-mid); line-height: 1.55; font-weight: 300; }
+    .bonus-label { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; background: var(--navy); color: white; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+
+    /* PRICING */
+    .price-section { text-align: center; }
+    .price-card-wrap { display: flex; justify-content: center; margin-top: 48px; }
+    .price-card {
+      background: var(--white); border: 2px solid var(--navy);
+      border-radius: 20px; padding: 52px 44px 40px;
+      width: 100%; max-width: 460px;
+      box-shadow: 0 12px 48px rgba(13,31,60,0.14);
+      position: relative; text-align: center;
+    }
+    .price-badge-wrap { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+    .price-badge { background: var(--navy); color: white; font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; padding: 6px 20px; border-radius: 100px; }
+    .price-now-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy-light); margin-bottom: 10px; }
+    .price-anchor-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 6px; }
+    .price-was { font-family: var(--serif); font-size: 30px; color: var(--text-soft); text-decoration: line-through; font-weight: 400; }
+    .price-amount { font-family: var(--serif); font-size: 76px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .price-amount-unit { font-size: 28px; font-weight: 400; color: var(--text-mid); }
+    .price-recurring { font-size: 14px; color: var(--text-soft); margin-top: 8px; margin-bottom: 32px; }
+    .price-divider { border: none; border-top: 1px solid rgba(13,31,60,0.08); margin: 0 0 28px; }
+    .price-features { list-style: none; margin-bottom: 32px; text-align: left; }
+    .price-features li { font-size: 15px; color: var(--text-mid); padding: 9px 0; border-bottom: 1px solid rgba(13,31,60,0.06); display: flex; align-items: center; gap: 10px; font-weight: 300; }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before { content: '✓'; color: var(--navy); font-weight: 700; flex-shrink: 0; }
+    .price-card .btn-primary { width: 100%; text-align: center; font-size: 17px; padding: 20px; }
+    .price-note { font-size: 12px; color: var(--text-soft); margin-top: 14px; line-height: 1.6; }
+
+    /* MID CTA */
+    .mid-cta { background: var(--navy); padding: 80px 0; text-align: center; }
+    .mid-cta h2 { font-family: var(--serif); font-size: clamp(28px,4vw,42px); color: var(--white); margin-bottom: 16px; }
+    .mid-cta p { font-size: 16px; color: rgba(255,255,255,0.70); margin-bottom: 36px; font-weight: 300; }
+    .mid-cta .btn-primary { background: var(--white); color: var(--navy); }
+    .mid-cta .btn-primary:hover { background: var(--pearl); }
+    .mid-cta-disclosure { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.45); }
+
+    /* FAQ */
+    .faq-list { max-width: 700px; margin: 48px auto 0; }
+    .faq-item { border-bottom: 1px solid rgba(13,31,60,0.10); }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; font-family: var(--serif); font-size: 18px; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-arrow { width: 26px; height: 26px; border: 1.5px solid rgba(13,31,60,0.22); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s; }
+    .faq-arrow svg { width: 10px; height: 10px; stroke: var(--navy); fill: none; stroke-width: 2.5; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { font-size: 15px; color: var(--text-mid); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s; font-weight: 300; }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 52px 0 32px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logo img { height: 40px; width: 40px; border-radius: 50%; }
+    .footer-logo-text { font-family: var(--serif); font-size: 18px; color: var(--white); font-weight: 600; }
+    .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.42); margin-bottom: 24px; letter-spacing: 0.10em; text-transform: uppercase; }
+    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.80); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+    .fade-up-1 { animation-delay: 0.08s; }
+    .fade-up-2 { animation-delay: 0.20s; }
+    .fade-up-3 { animation-delay: 0.32s; }
+    .fade-up-4 { animation-delay: 0.44s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-cta-group { align-items: center; }
+      .hero-visual { order: -1; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .pakiet-grid { grid-template-columns: 1fr; }
+      .pakiet-item.full-width { grid-column: auto; }
+      .trust-bar-inner { gap: 20px; }
+      .step { grid-template-columns: 48px 1fr; gap: 18px; }
+      .step-num { width: 48px; height: 48px; }
+      .step:not(:last-child)::after { left: 23px; }
+      .price-card { padding: 44px 24px 32px; }
+      .price-amount { font-size: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="hakuna_matata_bot_avatar.png" alt="Hakuna Matata" />
+        <div>
+          <span class="nav-logo-text">Hakuna Matata</span>
+          <span class="nav-logo-sub">Marketing na Autopilocie</span>
+        </div>
+      </a>
+      <a href="YOUR_EASYCART_CHECKOUT_LINK" class="btn-primary nav-cta"
+         onclick="fbq('track','InitiateCheckout');gtag('event','begin_checkout');">
+        Dołącz teraz →
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow fade-up fade-up-1">
+            <span class="hero-badge">Tylko dla branży beauty</span>
+            <span class="hero-scarcity-badge">⚡ Beta — limit 100 miejsc</span>
+          </div>
+          <h1 class="hero-headline fade-up fade-up-2">
+            Gotowy skrypt<br/>każdego ranka.<br/><em>Ty tylko publikujesz.</em>
+          </h1>
+          <p class="hero-sub fade-up fade-up-3">
+            Spersonalizowane skrypty na social media — dopasowane do Twojego gabinetu, Twojej niszy i Twoich klientek. Prosto na Telegram o&nbsp;08:00. Bez pisania. Bez myślenia. Bez stresu.
+          </p>
+          <div class="hero-cta-group fade-up fade-up-4">
+            <a href="YOUR_EASYCART_CHECKOUT_LINK" class="btn-primary"
+               onclick="fbq('track','InitiateCheckout');gtag('event','begin_checkout');">
+              Dołącz teraz →
+            </a>
+            <span class="hero-disclosure">Anulujesz kiedy chcesz — jednym kliknięciem.</span>
+          </div>
+        </div>
+        <div class="hero-visual fade-up fade-up-3">
+          <div class="hero-logo-wrap">
+            <img src="hakuna_matata_bot_avatar.png" alt="Hakuna Matata" />
+          </div>
+          <div class="delivery-card">
+            <div class="delivery-card-top">
+              <div class="tg-dot">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 13.47l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.268.089z"/></svg>
+              </div>
+              <div>
+                <div class="delivery-label">Codzienna dostawa</div>
+                <div class="delivery-time">08:00 ✓</div>
+              </div>
+            </div>
+            <div class="delivery-desc">Twój skrypt na dziś jest gotowy. Hook, treść, CTA i format — wszystko napisane pod Twój gabinet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item">✦ &nbsp;Spersonalizowane pod Twój gabinet</div>
+        <div class="trust-item">✦ &nbsp;Gotowe do publikacji od razu</div>
+        <div class="trust-item">✦ &nbsp;Anulujesz kiedy chcesz — jednym kliknięciem</div>
+        <div class="trust-item">✦ &nbsp;Tylko dla branży beauty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-headline">
+        <span class="label">Brzmi znajomo?</span>
+        <h2>Marketing "na jutro"<br/>trwa od miesięcy</h2>
+        <p>Wiesz, że social media działają. Tylko nie masz czasu ani siły, żeby to robić dobrze — po całym dniu przy klientkach.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-number">01</div>
+          <h3>Siedzisz wieczorem i nie wiesz co napisać</h3>
+          <p>Pusty ekran. Kursor miga. Kolejny dzień bez posta. A czas mija, a klientki zapisują się do kogoś innego.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-number">02</div>
+          <h3>Tworzysz treści, które nikt nie ogląda</h3>
+          <p>Wrzucasz zdjęcia z efektami, ale zasięgi są niskie, a zapytań o rezerwację brak. Coś nie gra — tylko nie wiesz co.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-number">03</div>
+          <h3>Myślenie o tematach zajmuje więcej czasu niż sam gabinet</h3>
+          <p>Skończyłaś z klientkami, a teraz zaczyna się myślenie, o czym dzisiaj napisać. Z nami dostajesz gotowy koncept i tekst — Ty tylko go publikujesz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-headline">
+        <span class="label">Jak to działa</span>
+        <h2>Trzy kroki.<br/>Potem już tylko publikujesz.</h2>
+        <p>Żadnych aplikacji do nauczenia. Żadnych paneli do obsługi. Tylko Telegram — który już masz.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><span>1</span></div>
+          <div class="step-content">
+            <h3>Opowiadasz nam o swoim gabinecie</h3>
+            <p>Zaraz po starcie zadam Ci na Telegramie kilka krótkich pytań o Twój gabinet i klientki — kiedy chcesz, między wizytami. To jedyna praca po Twojej stronie.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>2</span></div>
+          <div class="step-content">
+            <h3>System uczy się Twojego głosu</h3>
+            <p>Na podstawie Twoich odpowiedzi system przygotowuje spersonalizowane skrypty — dopasowane do Twojej niszy, tonu i celów. Nie szablony. Prawdziwa personalizacja.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>3</span></div>
+          <div class="step-content">
+            <h3>Każdego ranka o 08:00 — gotowy skrypt</h3>
+            <p>Dostajesz gotowy skrypt: hook, treść, CTA i format (reel / story / post / karuzela). Kopiujesz, nagrywasz lub wklejasz. Żadnego myślenia od zera.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CO DOSTAJESZ -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-headline">
+        <span class="label">Co dostajesz</span>
+        <h2>Marketing, który działa<br/><em style="font-style:italic;color:var(--navy-light);">za Ciebie</em></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">✍️</span>
+          <h3>Codzienny skrypt pod Twój gabinet</h3>
+          <p>Każdy skrypt pisany z myślą o Twojej niszy — kosmetologia, rzęsy, brwi, PMU, paznokcie, makijaż. Nie generyczne. Twoje.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📅</span>
+          <h3>Jasny pomysł na post na każdy dzień roku</h3>
+          <p>System pracuje według 52-tygodniowego planu budowania autorytetu, zasięgów i rezerwacji. Każdy tydzień ma cel — Ty go tylko realizujesz.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💬</span>
+          <h3>Dostarczane prosto na Telegram</h3>
+          <p>Żadnych paneli, logowań ani aplikacji. Skrypt trafia na Telegram o 08:00 — tak jak wiadomość od koleżanki. Prościej się nie da.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CO OTRZYMASZ PO DOŁĄCZENIU -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-headline">
+        <span class="label">Zawartość pakietu</span>
+        <h2>Co otrzymasz<br/>zaraz po dołączeniu:</h2>
+      </div>
+      <div class="pakiet-grid">
+        <div class="pakiet-item full-width">
+          <div class="pakiet-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <h4>Codzienny gotowy skrypt o 08:00</h4>
+            <p>Otrzymujesz nową treść każdego ranka — tak długo, jak jesteś z nami. Hook, treść, CTA i format gotowe do użycia od razu.</p>
+          </div>
+        </div>
+        <div class="pakiet-item full-width">
+          <div class="pakiet-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <h4>System, który uczy się i dostosowuje do Ciebie</h4>
+            <p>Po kilku dniach zbieramy Twój feedback — za długie, za krótkie, za formalne? System koryguje i skrypty są jeszcze lepiej dopasowane.</p>
+          </div>
+        </div>
+
+        <!-- BONUS PDF BLOCK -->
+        <div class="pakiet-item full-width bonus">
+          <div class="pakiet-check" style="background:var(--navy-light);"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="bonus-label">Bonus: 3 darmowe materiały PDF</span>
+            <h4>Dostępne od razu po dołączeniu</h4>
+            <p style="margin-bottom:10px;">Trzy gotowe materiały, które możesz wykorzystać jeszcze zanim przyjdzie pierwszy skrypt:</p>
+            <p>📄 <strong>5 hooków na wiralowe treści</strong> — sprawdzone formuły otwierające, gotowe do użycia od dziś</p>
+            <p style="margin-top:6px;">📄 <strong>6 gotowych hooków Instagram + TikTok</strong> — kopiujesz i wklejasz, bez żadnych zmian</p>
+            <p style="margin-top:6px;">📄 <strong>Kalendarz treści na 30 dni</strong> — szkielet strategii na pierwszy miesiąc</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING — SINGLE BETA CARD -->
+  <!--
+  ========================================================
+  SWAP INSTRUCTIONS — when Beta sells out (100 sales):
+  1. Delete the BETA CARD block below (marked START/END)
+  2. Uncomment the STANDARD CARD block below it
+  3. Delete these swap instructions comment entirely
+  ========================================================
+  -->
+
+  <section class="section">
+    <div class="container price-section">
+      <span class="label">Cennik</span>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,40px);color:var(--navy);margin-bottom:14px;">
+        Dołącz do bety.<br/><em style="font-style:italic;color:var(--navy-light);">Zanim miejsca się skończą.</em>
+      </h2>
+      <p style="font-size:16px;color:var(--text-mid);font-weight:300;">Beta to nagroda za wczesne dołączenie. Ta sama usługa — niższa cena wejścia.</p>
+
+      <div class="price-card-wrap">
+
+        <!-- ===================== BETA CARD START ===================== -->
+        <div class="price-card">
+          <div class="price-badge-wrap">
+            <span class="price-badge">⚡ Beta — limit 100 miejsc</span>
+          </div>
+          <div class="price-now-label">Cena Beta</div>
+          <div class="price-anchor-row">
+            <span class="price-was">147 PLN</span>
+            <div>
+              <span class="price-amount">97</span>
+              <span class="price-amount-unit"> PLN</span>
+            </div>
+          </div>
+          <div class="price-recurring">+ 59 PLN/mies. od 2. miesiąca</div>
+          <hr class="price-divider"/>
+          <ul class="price-features">
+            <li>Codzienny gotowy skrypt o 08:00</li>
+            <li>Personalizacja pod Twój gabinet i niszę</li>
+            <li>3 darmowe materiały PDF od razu po starcie</li>
+            <li>System adaptacji po Twoim feedbacku</li>
+            <li>Dostawa prosto na Telegram — zero instalacji</li>
+            <li>Anulujesz kiedy chcesz — jednym kliknięciem</li>
+          </ul>
+          <a href="YOUR_EASYCART_CHECKOUT_LINK" class="btn-primary"
+             onclick="fbq('track','InitiateCheckout');gtag('event','begin_checkout');">
+            Dołącz teraz →
+          </a>
+          <div class="price-note">
+            Dostęp od pierwszego poniedziałku po onboardingu.<br/>
+            Rekomendujemy płatność kartą. Płatność cyklicznym BLIKiem jest możliwa, ale zależy od ustawień Twojego banku.
+          </div>
+        </div>
+        <!-- ===================== BETA CARD END ===================== -->
+
+        <!--
+        ===================== STANDARD CARD — uncomment when Beta sold out =====================
+        <div class="price-card">
+          <div class="price-badge-wrap">
+            <span class="price-badge">Pakiet Standard</span>
+          </div>
+          <div class="price-now-label">Cena Standard</div>
+          <div style="margin-bottom:6px;">
+            <span class="price-amount">147</span>
+            <span class="price-amount-unit"> PLN</span>
+          </div>
+          <div class="price-recurring">+ 59 PLN/mies. od 2. miesiąca</div>
+          <hr class="price-divider"/>
+          <ul class="price-features">
+            <li>Codzienny gotowy skrypt o 08:00</li>
+            <li>Personalizacja pod Twój gabinet i niszę</li>
+            <li>3 darmowe materiały PDF od razu po starcie</li>
+            <li>System adaptacji po Twoim feedbacku</li>
+            <li>Dostawa prosto na Telegram — zero instalacji</li>
+            <li>Anulujesz kiedy chcesz — jednym kliknięciem</li>
+          </ul>
+          <a href="YOUR_EASYCART_CHECKOUT_LINK" class="btn-primary"
+             onclick="fbq('track','InitiateCheckout');gtag('event','begin_checkout');">
+            Dołącz teraz →
+          </a>
+          <div class="price-note">
+            Dostęp od pierwszego poniedziałku po onboardingu.<br/>
+            Rekomendujemy płatność kartą. Płatność cyklicznym BLIKiem jest możliwa, ale zależy od ustawień Twojego banku.
+          </div>
+        </div>
+        ===================== END STANDARD CARD =====================
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <div class="mid-cta">
+    <div class="container">
+      <h2>Gotowa, żeby przestać<br/>walczyć z pustym ekranem?</h2>
+      <p>Dołącz do bety. Pierwsze miejsca zawsze odchodzą najszybciej.</p>
+      <a href="YOUR_EASYCART_CHECKOUT_LINK" class="btn-primary"
+         onclick="fbq('track','InitiateCheckout');gtag('event','begin_checkout');">
+        Dołącz teraz →
+      </a>
+      <div class="mid-cta-disclosure">Anulujesz kiedy chcesz — jednym kliknięciem.</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-headline">
+        <span class="label">FAQ</span>
+        <h2>Masz pytania?<br/>Mamy odpowiedzi.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Czy muszę mieć jakieś narzędzia lub aplikacje?
+            <span class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-a">Tylko Telegram — który pewnie już masz. Żadnych paneli, kont do zakładania ani aplikacji do instalowania. Skrypt trafia do Ciebie jak zwykła wiadomość.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Skąd system wie, co pisać o moim gabinecie?
+            <span class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-a">Zaraz po starcie zadam Ci na Telegramie kilka krótkich pytań o Twój gabinet i klientki. Na tej podstawie każdy skrypt jest pisany specjalnie dla Ciebie. Nie ma dwóch takich samych zestawów.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Co jeśli skrypty mi nie będą pasować?
+            <span class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-a">Po kilku dniach pytamy o feedback — długość, ton, typ treści. System koryguje i skrypty są jeszcze lepiej dopasowane. Im dłużej korzystasz, tym lepiej system Cię zna.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Kiedy mogę zrezygnować i jak to działa?
+            <span class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-a">Anulujesz kiedy chcesz — jednym kliknięciem, żadnych umów, żadnych kar. Rekomendujemy płatność kartą. Płatność cyklicznym BLIKiem jest możliwa, ale zależy od ustawień Twojego banku.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="hakuna_matata_bot_avatar.png" alt="Hakuna Matata" />
+        <span class="footer-logo-text">Hakuna Matata</span>
+      </div>
+      <div class="footer-tagline">Marketing na Autopilocie</div>
+      <div class="footer-links">
+        <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
+        <a href="/regulamin.html">Regulamin</a>
+        <a href="mailto:kontakt@hakuna.com.pl">kontakt@hakuna.com.pl</a>
+      </div>
+      <div class="footer-copy">© 2025 Hakuna Matata. Wszelkie prawa zastrzeżone.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    document.querySelectorAll('a[href="YOUR_EASYCART_CHECKOUT_LINK"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        gtag('event','cta_click',{event_category:'conversion',event_label:btn.textContent.trim()});
+      });
+    });
+  </script>
+</body>
 </html>
